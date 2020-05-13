@@ -102,6 +102,14 @@ def stratum_deps():
                     commit = pi_commit,
                 )
 
+    if "com_github_p4lang_PI_np4" not in native.existing_rules():
+        # ----- PI for Netcope targets -----
+        remote_workspace(
+            name = "com_github_p4lang_PI_np4",
+            remote = "https://github.com/craigsdell/PI.git",
+            commit = "12be7a96f3d903afdd6cc3095f7d4003242af60b",
+        )
+
     if "com_github_openconfig_gnmi_proto" not in native.existing_rules():
         http_archive(
             name = "com_github_openconfig_gnmi_proto",
@@ -173,7 +181,7 @@ def stratum_deps():
         remote_workspace(
             name = "com_google_absl",
             remote = "https://github.com/abseil/abseil-cpp",
-            branch = "lts_2019_08_08",
+            branch = "lts_2020_02_25",
         )
 
     if "com_googlesource_code_cctz" not in native.existing_rules():
